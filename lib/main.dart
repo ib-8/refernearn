@@ -87,7 +87,7 @@ class _AppEntryState extends State<AppEntry> {
       builder: (context, authProvider, child) {
         if (ReferralProvider.referralCode != null &&
             authProvider.authState == AuthState.unauthenticated) {
-          return SignUp();
+          return const SignUp();
         }
 
         switch (authProvider.authState) {

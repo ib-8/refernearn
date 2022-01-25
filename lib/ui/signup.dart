@@ -97,17 +97,19 @@ class _SignUpState extends State<SignUp> {
                         onPressed: () => _signUp(authProvider),
                         absorb: authProvider.isLoading,
                       ),
-                Center(
-                  child: InkWell(
-                    child: StyledText(
-                      "Already have an account? Log-in",
-                      size: 13,
-                      color: Colors.grey[800]!,
-                      decoration: TextDecoration.underline,
-                    ),
-                    onTap: () => Navigator.pop(context),
-                  ),
-                ),
+                ReferralProvider.referralCode == null
+                    ? Center(
+                        child: InkWell(
+                          child: StyledText(
+                            "Already have an account? Log-in",
+                            size: 13,
+                            color: Colors.grey[800]!,
+                            decoration: TextDecoration.underline,
+                          ),
+                          onTap: () => Navigator.pop(context),
+                        ),
+                      )
+                    : const SizedBox(),
               ],
             ),
           ),

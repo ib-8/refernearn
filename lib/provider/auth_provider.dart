@@ -39,7 +39,7 @@ class AuthProvider extends ChangeNotifier {
 
       if (firebaseUser != null) {
         User? referrar;
-        if (referralCode != null) {
+        if (referralCode != null && referralCode.isNotEmpty) {
           referrar = await ReferralProvider.getReferrar(referralCode);
         }
         User user = User(
@@ -51,7 +51,7 @@ class AuthProvider extends ChangeNotifier {
         );
 
         await userProvider.createUser(user);
-        if (referralCode != null) {
+        if (referralCode != null && referralCode.isNotEmpty) {
           if (referrar != null) {
             await ReferralProvider.addReferral(referrar);
           } else {
